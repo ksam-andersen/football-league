@@ -26,9 +26,9 @@ class LoadUserData extends Fixture implements FixtureInterface
     {
         $user = new User();
 
-        $encodedPassword = $this->encoder->encodePassword($user, 'user_pass');
+        $encodedPassword = $this->encoder->encodePassword($user, 'test');
 
-        $user->setUsername('user')
+        $user->setUsername('johndoe')
             ->setPassword($encodedPassword);
 
         $manager->persist($user);

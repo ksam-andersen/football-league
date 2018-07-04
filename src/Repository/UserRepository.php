@@ -8,32 +8,12 @@ use Doctrine\ORM\EntityRepository;
 class UserRepository extends EntityRepository
 {
     /**
-     * @param $username
+     * @param string $username
      *
      * @return User|null
      */
-    public function findByUsername($username)
+    public function findByUsername(string $username): ?User
     {
         return $this->findOneBy(['username' => $username]);
-    }
-
-    /**
-     * @param $authKey
-     *
-     * @return User|null
-     */
-    public function findByAuthKey($authKey)
-    {
-        return $this->findOneBy(['authKey' => $authKey]);
-    }
-
-    /**
-     * @param $token
-     *
-     * @return User|null
-     */
-    public function findByJwt($token)
-    {
-        return $this->findByAuthKey(sha1($token));
     }
 }
