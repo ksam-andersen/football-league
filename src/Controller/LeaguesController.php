@@ -30,6 +30,7 @@ class LeaguesController extends Controller
     public function index(Request $request)
     {
         $result = $this->getDoctrine()->getRepository(League::class)->findByParams($request->query);
+
         return $this->json($result, JsonResponse::HTTP_OK, [], $this->context);
     }
 
